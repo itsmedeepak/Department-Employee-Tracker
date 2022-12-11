@@ -1,5 +1,9 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const Sequelize = require('sequelize');
-var sequelize = new Sequelize('dafvu1tl6l8q7k', 'wixoxnypzdkjsr', 'bc63615ca52d44c809c8567a4af25c237b5a06535ae365f5a5155eb28c06d41a', {
+
+
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
     host: 'ec2-35-171-41-147.compute-1.amazonaws.com',
     dialect: 'postgres',
     port: 5432,
@@ -8,6 +12,7 @@ var sequelize = new Sequelize('dafvu1tl6l8q7k', 'wixoxnypzdkjsr', 'bc63615ca52d4
     },
     query: {raw: true}
 });
+
 
 sequelize.authenticate().then(() => {
     console.log('Connection has been established successfully.');

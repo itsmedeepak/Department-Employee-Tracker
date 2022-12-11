@@ -1,15 +1,3 @@
-/*********************************************************************************
-* WEB322 – Assignment 06
-* I declare that this assignment is my own work in accordance with Seneca Academic Policy. No part
-* of this assignment has been copied manually or electronically from any other source
-* (including 3rd party web sites) or distributed to other students.
-*
-* Name: Akeel Lashley   Student ID: 108091208    Date: 2021-12-03
-*
-* Online (Heroku) Link: https://tranquil-caverns-24524.herokuapp.com/
-*
-********************************************************************************/
-
 var path = require("path");
 var express = require("express");
 var dataService = require("./data-service.js");

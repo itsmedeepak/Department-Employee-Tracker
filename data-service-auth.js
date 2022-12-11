@@ -1,6 +1,8 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
+const dotenv = require('dotenv');
+dotenv.config({ path: './dotenv' });
 
 var userSchema = new Schema({
     "userName": {
@@ -17,7 +19,8 @@ let User;
 
 module.exports.initialize = function () {
     return new Promise(function (resolve, reject) {
-        let db = mongoose.createConnection("mongodb+srv://DbUser:BckGk8Fb3UVlL0v0@senecaweb.osuc0.mongodb.net/web322-app?retryWrites=true&w=majority", { useNewUrlParser: true });
+        const dbCreds = process.env.MONGO_DB_CREDS;
+        let db = mongoose.createConnection(dbCreds, { useNewUrlParser: true });
         db.on('error', (err) => {
             reject(err);
         });
