@@ -81,8 +81,7 @@ app.use(function(req, res, next) {
    
 
 app.get("/", function (req, res) {
-    //res.render('home');
-    res.redirect('/Register');
+    res.redirect('/about');
 });
 
 app.get("/about", function (req, res) {
