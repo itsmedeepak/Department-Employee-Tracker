@@ -12,7 +12,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 
-var HTTP_PORT = process.env.PORT || 8080;
+var HTTP_PORT = 8080;
 
 function onHttpStart() {
     console.log("Express http server listening on: " + HTTP_PORT);
@@ -66,10 +66,11 @@ app.use(function (req, res, next) {
     app.locals.activeRoute = (route == "/") ? "/" : route.replace(/\/$/, "");
     next();
 });
+DB_SECRET = "D3tHuI0Dk1WRRMhy3kcmZuRnJNOXSV5NLN8K87olxbQ2axxFCtYhZ7wlfaVSkOH6"
 
 app.use(clientSessions({
     cookieName: "session", // this is the object name that will be added to 'req'
-    secret: process.env.DB_SECRET, // this should be a long un-guessable string.
+    secret: DB_SECRET, // this should be a long un-guessable string.
     duration: 2 * 60 * 1000, // duration of the session in milliseconds (2 minutes)
     activeDuration: 1000 * 60 // the session will be extended by this many ms each request (1 minute)
 }));
