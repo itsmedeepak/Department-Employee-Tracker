@@ -2,9 +2,16 @@ const dotenv = require('dotenv');
 dotenv.config();
 const Sequelize = require('sequelize');
 
+MONGO_DB_CREDS= "mongodb+srv://DbUser:BckGk8Fb3UVlL0v0@senecaweb.osuc0.mongodb.net/web322-app?retryWrites=true&w=majority"
 
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
-    host: process.env.DB_SERVER,
+
+DB_SERVER = "castor.db.elephantsql.com"
+DB_NAME= "jodbfuoo"
+DB_USER= "jodbfuoo"
+DB_PASS= "geRLu7DMHY1q9xVxscu2MRE-qxqUsxpd"
+
+const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
+    host: DB_SERVER,
     dialect: 'postgres',
     port: 5432,
     dialectOptions: {
