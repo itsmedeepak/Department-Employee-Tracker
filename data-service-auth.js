@@ -16,10 +16,11 @@ var userSchema = new Schema({
 });
 
 let User;
+MONGO_DB_CREDS= "mongodb+srv://DbUser:BckGk8Fb3UVlL0v0@senecaweb.osuc0.mongodb.net/web322-app?retryWrites=true&w=majority"
 
 module.exports.initialize = function () {
     return new Promise(function (resolve, reject) {
-        const dbCreds = process.env.MONGO_DB_CREDS;
+        const dbCreds = MONGO_DB_CREDS;
         let db = mongoose.createConnection(dbCreds, { useNewUrlParser: true });
         db.on('error', (err) => {
             reject(err);
